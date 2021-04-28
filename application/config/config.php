@@ -23,8 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$base="";
-$config['base_url'] = 'http://localhost/BackCovid/Back/';
+$base="https://covid19-back-info.herokuapp.com/";
+$baselocal= 'http://localhost/BackCovid/Back/';
+$config['base_url'] =$base;
 
 /*
 |--------------------------------------------------------------------------

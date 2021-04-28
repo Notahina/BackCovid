@@ -78,34 +78,12 @@ $user='kxkepqsprimfla';
 $pwd='61270c222c42f034a4db8af6140010dfbaa73a1f2500e578531a6f327d8d7049';
 $database='d7rhbljh0vnab2';
 
-// $db['default'] = array(
-// 	'dsn'	=> '',
-// 	'hostname' => $host,
-// 	'username' => $user,
-// 	'password' => $pwd,
-// 	'database' => $database,
-// 	'dbdriver' => 'postgre',
-// 	'dbprefix' => '',
-// 	'pconnect' => FALSE,
-// 	'db_debug' => (ENVIRONMENT !== 'production'),
-// 	'cache_on' => FALSE,
-// 	'cachedir' => '',
-// 	'char_set' => 'utf8',
-// 	'dbcollat' => 'utf8_general_ci',
-// 	'swap_pre' => '',
-// 	'encrypt' => FALSE,
-// 	'compress' => FALSE,
-// 	'stricton' => FALSE,
-// 	'failover' => array(),
-// 	'save_queries' => TRUE
-// );
-
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => '1234',
-	'database' => 'covid19',
+	'hostname' => $host,
+	'username' => $user,
+	'password' => $pwd,
+	'database' => $database,
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -121,3 +99,25 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => 'localhost',
+// 	'username' => 'postgres',
+// 	'password' => '1234',
+// 	'database' => 'covid19',
+// 	'dbdriver' => 'postgre',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
