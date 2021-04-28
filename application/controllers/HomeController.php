@@ -6,7 +6,7 @@
             $this->load->helper('url'); 
             $this->load->model('User');
         } 
-        public function home(){
+        public function index(){
             $this->load->view('Home');
             echo 'ddd';
         }

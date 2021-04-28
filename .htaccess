@@ -1,3 +1,6 @@
 RewriteEngine On
-RewriteBase /Covid19/
+RewriteBase /BackCovid/Back/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^Authentification-OMS.html$ index.php [L]
+RewriteRule ^Dashboard-OMS.html$ HomeController [L]

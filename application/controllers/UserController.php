@@ -14,7 +14,7 @@
                try{
                     $data=$this->User->getUser($username,$mdp);
                     $_SESSION['user']=$data;
-                    redirect('/Home/Dash','refresh');
+                    redirect('HomeController','refresh');
                     // var_dump($data);
                }catch(Exception $e){           
                 $error['erreur']=$e->getMessage();

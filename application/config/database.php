@@ -73,33 +73,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$host='ec2-54-74-14-109.eu-west-1.compute.amazonaws.com:5432';
+$host='ec2-54-74-14-109.eu-west-1.compute.amazonaws.com';
 $user='kxkepqsprimfla';
 $pwd='61270c222c42f034a4db8af6140010dfbaa73a1f2500e578531a6f327d8d7049';
 $database='d7rhbljh0vnab2';
 
-$db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => $host,
-	'username' => $user,
-	'password' => $pwd,
-	'database' => $database,
-	'dbdriver' => 'postgre',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
-/*
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => $host,
+// 	'username' => $user,
+// 	'password' => $pwd,
+// 	'database' => $database,
+// 	'dbdriver' => 'postgre',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -120,4 +120,4 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
-);*/
+);
