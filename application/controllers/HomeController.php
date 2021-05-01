@@ -92,6 +92,10 @@
             $val["valiny"]=$valiny;
             $this->load->view('Saisie',$val);
         }
-        
+        public function LogOut(){
+            $this->session->unset_userdata('user');
+            $ul=base_url() .'Authentification-OMS.html';
+            redirect($ul,'refresh');
+        }
    }
 ?>
