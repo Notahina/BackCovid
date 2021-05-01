@@ -1,8 +1,8 @@
 RewriteEngine On
-RewriteBase /covid19-back-info.herokuapp.com/
+RewriteBase /https://covid19-back-info.herokuapp.com/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^Authentification-OMS.html$ index.php/$1 [L,QSA]
+RewriteRule ^Authentification-OMS.html$ https://covid19-back-info.herokuapp.com/index.php/$1 [L,QSA]
 RewriteRule ^Dashboard-OMS/nombre-a-travers-le-monde.html$ index.php?c=HomeController&id=$1 [L]
