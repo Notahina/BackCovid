@@ -37,13 +37,16 @@ CREATE TABLE Cas(
     Iduser varchar(250) NOT NULL,
     Region varchar(250),
     Deaths int,
-    Date date NOT NULL,
+    Date date DEFAULT current_date - INTERVAL '1 DAYS',
     Title varchar(250),
     Newcases int,
+    Healed int, 
     FOREIGN KEY (Iduser) REFERENCES Users(Id),
     FOREIGN KEY (Region) REFERENCES Regions(Region)
 );
 CREATE SEQUENCE seq_cas INCREMENT 1 START 1;
+INSERT INTO Cas VALUES(CONCAT('C0',nextval('seq_cas')),'U1','Madagascar',15,'2021-04-28','Le nombre de cas a Madagascar a augmente:',350,15);
+INSERT INTO Cas VALUES(CONCAT('C0',nextval('seq_cas')),'U1','Europe',60,'2021-04-28','Le nombre de cas en Europe:',450,150);
 -- ---------------SAVOIRPLUS
 CREATE TABLE OtherNews(
     Idother varchar(250) PRIMARY KEY,
@@ -51,7 +54,7 @@ CREATE TABLE OtherNews(
     Region varchar(250),
     label text,
     lien text,
-    etat int,
+    etat int DEFAULT 1,
     FOREIGN KEY (Iduser) REFERENCES Users(Id),
     FOREIGN KEY (Region) REFERENCES Regions(Region)
 );

@@ -7,7 +7,6 @@
         }
         public function getUser($username,$mdp){
             $data=null;
-            $this->load->database();
             $sql=sprintf("SELECT * FROM Users WHERE Username='%s' and Mdp='%s'",$username,$mdp);
             $query=$this->db->query($sql);
             $data=$query->result();
@@ -16,7 +15,7 @@
             }
             $query->free_result();
             $this->db->close(); 
-            return $data;
+            return $data[0];
         }
     }
 ?>

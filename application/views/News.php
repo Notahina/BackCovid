@@ -34,9 +34,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url()?>index.php?c=HomeControllers">
+                <a class="nav-link" href="<?php echo base_url()?>index.php?c=HomeController">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>OMS</span></a>
             </li>
 
             <!-- Divider -->
@@ -134,7 +134,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h5 class="m-0 font-weight-bold text-primary">Statistique du Covid </h5>
+                                    <h5 class="m-0 font-weight-bold text-primary">Nouvelle actualite</h5>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -142,19 +142,19 @@
                                     <tr>
                                         <th>Date</th>
                                         <th>Pays</th>
-                                        <th>Nombre de cas</th>
-                                        <th>Guéris</th>
-                                        <th>Déces</th>
+                                        <th>Titre</th>
+                                        <th>Supprimer</th>
+                                        
                                     </tr>
                                     <?php if(isset($valiny)) {
-                                        for($i=0;$i<count($valiny["cas"]);$i++){
+                                        for($i=0;$i<count($valiny["news"]);$i++){
                                     ?>
                                     <tr>
-                                        <td><?php echo $valiny["cas"][$i]->date;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->region;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->newcases;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->healed;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->deaths;?></td>
+                                        <td><?php echo $valiny["news"][$i]->dateajout;?></td>
+                                        <td><?php echo $valiny["news"][$i]->region;?></td>
+                                        <td><?php echo $valiny["news"][$i]->title;?></td>
+                                        <td>Supprimer</td>
+
                                     </tr>
                                     <?php 
                                         }

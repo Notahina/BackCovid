@@ -14,7 +14,7 @@
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url()?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <script type="text/javascript" src="<?php echo base_url()?>assets/js/function.js"></script>
 </head>
 <body id="page-top">
 
@@ -34,7 +34,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url()?>index.php?c=HomeControllers">
+                <a class="nav-link" href="<?php echo base_url()?>/index.php?c=HomeController">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -69,9 +69,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="<?php echo base_url()?>index.php?c=HomeController&m=saisieNews">Actualite</a>
-                        <a class="collapse-item" href="<?php echo base_url()?>index.php?c=HomeController&m=saisieNews">Nombre de case</a>
-                        <a class="collapse-item" href="<?php echo base_url()?>index.php?c=HomeController&m=saisieNews">Plus d'nfos</a>
+                        <a class="collapse-item" onclick="ChangeBlock(0)">Actualite</a>
+                        <a class="collapse-item" onclick="ChangeBlock(1)">Nombre de case</a>
+                        <a class="collapse-item" onclick="ChangeBlock(2)">Plus d'nfos</a>
                     </div>
                 </div>
             </li>
@@ -126,7 +126,7 @@
 
                     <!-- Content Row -->
 
-                    <div class="row">
+                    <div class="row" id="actu" style='display:block'>
 
                         <!-- Area Chart -->
                         <div class="col-xl-12 col-lg-12">
@@ -134,39 +134,145 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h5 class="m-0 font-weight-bold text-primary">Statistique du Covid </h5>
+                                    <h5 class="m-0 font-weight-bold text-primary">Saisie de nouvelle Actualite</h5>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                <table width="100%"> 
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Pays</th>
-                                        <th>Nombre de cas</th>
-                                        <th>Guéris</th>
-                                        <th>Déces</th>
-                                    </tr>
-                                    <?php if(isset($valiny)) {
-                                        for($i=0;$i<count($valiny["cas"]);$i++){
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $valiny["cas"][$i]->date;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->region;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->newcases;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->healed;?></td>
-                                        <td><?php echo $valiny["cas"][$i]->deaths;?></td>
-                                    </tr>
-                                    <?php 
-                                        }
-                                    }
-                                    ?>
-                                </table>
+                                <form action="" method="post">
+                                    <input type="hidden" name="news">
+                                    <div class="row col-xl-12 col-lg-12">
+                                        <label >
+                                            Titre </label>
+                                            <input type="text" name="title" style="margin-left: 9%"/>
+                                    </div>
+                                    <br>
+                                    <div class="row col-xl-12 col-lg-12">
+                                        <label>
+                                            Pays:
+                                        </label>
+                                           <select name="region" style="margin-left: 9%;width:200px">
+                                           <?php if(isset($valiny)) {
+                                               for($i=0;$i<count($valiny["Pays"]);$i++){?>
+                                                    <option><?php echo $valiny["Pays"][$i]->region;?></option>
+                                            <?php }
+                                            }
+                                            ?>
+                                           </select>
+                                    </div>
+                                    <br>
+                                    <div class="row col-xl-12 col-lg-12"> 
+                                        <label>
+                                            Contenue
+                                        </label>
+                                            <div class="row"  >
+                                                <textarea type="text" name="label" style="margin-left: 12%" cols="150" ></textarea>
+                                            </div>
+                                        
+                                    </div>
+                                   <button type="submit">Valider</button>
+                                   </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="cas" style='display:none'>
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h5 class="m-0 font-weight-bold text-primary">Saisie de nouvelle cas</h5>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                <form action="" method="post">
+                                    <input type="hidden" name="donne" value="donne">
+                                    <div class="row col-xl-12 col-lg-12">
+                                        <label >
+                                            Titre </label>
+                                            <input type="text" name="title" style="margin-left: 9%"/>
+                                    </div>
+                                    <br>
+                                    <div class="row col-xl-12 col-lg-12">
+                                        <label>
+                                            Pays:
+                                        </label>
+                                           <select name="region" style="margin-left: 9%;width:200px">
+                                           <?php if(isset($valiny)) {
+                                               for($i=0;$i<count($valiny["Pays"]);$i++){?>
+                                                    <option><?php echo $valiny["Pays"][$i]->region;?></option>
+                                            <?php }
+                                            }
+                                            ?>
+                                           </select>
+                                    </div>
+                                    <br>
+                                    <div class="row col-xl-12 col-lg-12"> 
+                                        <label >Cas:</label>
+                                            <input type="text" name="cas" style="margin-left: 9%"/>
+                                    </div><br>
+                                    <div class="row col-xl-12 col-lg-12"> 
+                                        <label >Déces </label>
+                                            <input type="text" name="deces" style="margin-left: 9%"/>
+                                    </div><br>
+                                    <div class="row col-xl-12 col-lg-12"> 
+                                        <label >Guéris </label>
+                                            <input type="text" name="heal" style="margin-left: 9%"/>
+                                    </div>
+                                   <button type="submit">Valider</button>
+                                   </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="OhterNews" style='display:none'>
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h5 class="m-0 font-weight-bold text-primary">Saisie de plus d'information</h5>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                <form action="" method="post">
+                                    <input type="hidden" name="other" value="donne">
+                                    <div class="row col-xl-12 col-lg-12">
+                                        <label >
+                                            Titre </label>
+                                            <input type="text" name="title" style="margin-left: 9%"/>
+                                    </div>
+                                    <br>
+                                    <div class="row col-xl-12 col-lg-12">
+                                        <label>
+                                            Pays:
+                                        </label>
+                                           <select name="region" style="margin-left: 9%;width:200px">
+                                           <?php if(isset($valiny)) {
+                                               for($i=0;$i<count($valiny["Pays"]);$i++){?>
+                                                    <option><?php echo $valiny["Pays"][$i]->region;?></option>
+                                            <?php }
+                                            }
+                                            ?>
+                                           </select>
+                                    </div>
+                                    <br>
+                                    <div class="row col-xl-12 col-lg-12"> 
+                                        <label >Lien:</label>
+                                            <input type="text" name="lien" style="margin-left: 9%"/>
+                                    </div><br>
+                                  
+                                   <button type="submit">Valider</button>
+                                   </form>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-               
                 </div>
                 <!-- /.container-fluid -->
 

@@ -3,6 +3,7 @@
    class UserController extends CI_Controller {
         function __construct() { 
             parent::__construct(); 
+            $this->load->library('session');
             $this->load->helper('url'); 
             $this->load->model('User');
         } 
@@ -13,10 +14,12 @@
                $pass['val']=null;
                try{
                     $data=$this->User->getUser($username,$mdp);
-                    $_SESSION['user']=$data;
-                    redirect('HomeController','refresh');
-                    // var_dump($data);
+                    $this->session->set_userdata('user', $data);
+                    $ul=base_url() .'Dashboard-OMS/nombre-a-travers-le-monde.html';
+                    // echo $ul;
+                    redirect($ul,'refresh');
                }catch(Exception $e){           
+
                 $error['erreur']=$e->getMessage();
                 $pass['val']=$error['erreur'];
                }
