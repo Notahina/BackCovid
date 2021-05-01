@@ -26,7 +26,7 @@
         public function insertCas($iduser,$region,$death,$title,$new,$heal){
             $id="CONCAT('C0',nextval('seq_cas'))";
             $sql=sprintf("INSERT INTO Cas (Idcas,Iduser,Region,Deaths,Title,Newcases,Healed) VALUES (%s,'%s','%s',%d,'%s',%d,%d)",$id,$iduser,$region,$death,$title,$new,$heal);
-            echo $sql;
+            // echo $sql;
             if($this->db->query($sql)){
                 return 1;
             }else{
