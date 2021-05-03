@@ -139,7 +139,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                 <form action="" method="post">
-                                    <input type="hidden" name="news">
+                                    <input type="hidden" name="news" value="news">
                                     <div class="row col-xl-12 col-lg-12">
                                         <label >
                                             Titre </label>
